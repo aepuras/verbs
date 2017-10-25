@@ -1,0 +1,14 @@
+.settings-container {
+    display: flex;
+    justify-content: center;
+}
+
+.settings-group {
+    width: 600px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.main-container {
+    margin-top: 50px;
+}

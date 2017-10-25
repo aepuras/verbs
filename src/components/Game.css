@@ -1,0 +1,44 @@
+.game-start {
+    display: flex;
+    justify-content: center;
+}
+
+.game-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.game-form > div {
+    display: flex;
+    justify-content: center;
+}
+
+.game-form-row {
+    display: flex;
+    justify-content: center;
+}
+
+.game-form-row > div {
+    display: flex;
+}
+
+.game-form-row > div > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    font-size: 30px;
+    color: orange;
+}
+
+.game-form-row input {
+    width: 100%
+}
+
+.game-form-row input.error {
+    color: red;
+}
+
+.game-form-icon {
+    margin-left: 5px;
+}

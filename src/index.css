@@ -1,0 +1,14 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Fira Sans', sans-serif;
+    background-color: #FFF;
+}
+
+input[type=email], input[type=password], input[type=text] {
+    padding: 5px 0 5px 5px;
+    color: #4f4f4f;
+    font-size: 16px;
+    border: 1px solid #DDDFE3;
+    border-radius: 4px;
+}
