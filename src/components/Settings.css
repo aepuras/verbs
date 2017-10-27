@@ -1,9 +1,14 @@
 .settings {
     background-color: #B5A3CD;
     display: flex;
-    width: 239px;
     flex-wrap: wrap;
     justify-content: center;
-    border-radius: 9rem;
     padding: 40px 20px 20px 20px;
+}
+
+@media screen and (min-width: 600px) {
+    .settings {
+        width: 239px;
+        border-radius: 9rem;
+    }
 }
