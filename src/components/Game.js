@@ -64,6 +64,7 @@ class Game extends Component {
                 this.timeOuts.push(setTimeout(() => { this.setState({showWrong: true}); } , 200));
             }
         }
+        this.answerInput.focus();
     }
 
     handleOnKeyPress = e => {
@@ -86,6 +87,7 @@ class Game extends Component {
                                 onKeyPress={this.handleOnKeyPress}
                                 value={this.state.answer}
                                 className={classnames({error: !!this.state.showAnswer})}
+                                ref={(ip) => this.answerInput = ip}
                                 type="text" id="answer" name="answer" />
                             <div className={classnames('game-form-icon', { hidden: !this.state.showWrong })}>
                                 <Icon icon={ICONS.WRONG}  color="red" />
