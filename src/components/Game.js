@@ -30,14 +30,8 @@ class Game extends Component {
     toggleGame = () => {
         let value = this.state.started;
         this.setState({
-            started: !value
-        });
-        this.randomizeIndex();
-    }
-
-    randomizeIndex = () => {
-        this.setState({
-            verbIndex: Math.floor(Math.random() * this.props.verbs.length)
+            started: !value,
+            verbIndex: Math.floor(Math.random() * this.props.verbs.length),
         });
     }
 
@@ -48,17 +42,17 @@ class Game extends Component {
     checkAnswer = () => {
         this.setState({ showWrong: false });
         if (this.state.answer === this.props.verbs[this.state.verbIndex][this.props.currentAnswer]) {
-            console.log("CORRECT");
+            let currentIndex = this.state.verbIndex;
+            let vbLength = this.props.verbs.length;
             this.setState({
                 answer: '',
                 noOfMistakes: 0,
                 showAnswer: false,
+                verbIndex: currentIndex >= this.props.verbs.length - 1 ? 0 : ++currentIndex,
             })
-            this.randomizeIndex();
         } else {
             let mistakes = this.state.noOfMistakes;
             this.setState({ noOfMistakes: ++mistakes});
-            console.log("WRONG !!!");
             if (this.state.noOfMistakes > 2) {
                 this.setState({
                     noOfMistakes: 0,
