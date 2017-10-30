@@ -21,20 +21,23 @@ class MainPage extends React.Component {
     chooseQuestion = (setting) => {
         this.setState({
             currentQuestion: setting,
-        })
+        });
+        this.game.restartGame(false);
     }
 
     chooseAnswer = (setting) => {
         this.setState({
             currentAnswer: setting,
-        })
+        });
+        this.game.restartGame(false);
     }
 
     chooseVerbsSet = (verbsSetIndex) => {
         this.setState({
             currentVerbsSetIndex: verbsSetIndex,
             verbs: data[verbsSetIndex].items,
-        })
+        });
+        this.game.restartGame(true);
     }
 
     verbsSetButtons = () => {
@@ -79,6 +82,7 @@ class MainPage extends React.Component {
                         verbs={this.state.verbs}
                         currentQuestion={this.state.currentQuestion}
                         currentAnswer={this.state.currentAnswer}
+                        ref={instance => {this.game = instance; }}
                     />
                 </div>
             </div>

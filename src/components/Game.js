@@ -38,6 +38,17 @@ class Game extends Component {
         });
     }
 
+    restartGame = (changeIndex) => {
+        this.timeOuts.push(setTimeout(() => {
+            let vbIndex = changeIndex ? Math.floor(Math.random() * this.props.verbs.length) : this.state.verbIndex;
+            this.setState({
+                started: true,
+                verbIndex: vbIndex,
+                question: this.randomArrayItem(this.props.verbs[vbIndex][this.props.currentQuestion]),
+            });
+        }), 1);
+    }
+
     randomizeHint = () => {
         let hints = this.props.verbs[this.state.verbIndex][this.props.currentAnswer];
         return this.randomArrayItem(hints);
