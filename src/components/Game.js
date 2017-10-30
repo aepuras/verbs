@@ -38,15 +38,22 @@ class Game extends Component {
         });
     }
 
+    componentDidUpdate (prevProps, prevState) {
+        if (prevProps.verbs != this.props.verbs) {
+            this.restartGame(true);
+        }
+        if (prevProps.currentQuestion != this.props.currentQuestion || prevProps.currentAnswer != this.props.currentAnswer) {
+            this.restartGame(false);
+        }
+    }
+
     restartGame = (changeIndex) => {
-        this.timeOuts.push(setTimeout(() => {
-            let vbIndex = changeIndex ? Math.floor(Math.random() * this.props.verbs.length) : this.state.verbIndex;
-            this.setState({
-                started: true,
-                verbIndex: vbIndex,
-                question: this.randomArrayItem(this.props.verbs[vbIndex][this.props.currentQuestion]),
-            });
-        }), 1);
+        let vbIndex = changeIndex ? Math.floor(Math.random() * this.props.verbs.length) : this.state.verbIndex;
+        this.setState({
+            started: true,
+            verbIndex: vbIndex,
+            question: this.randomArrayItem(this.props.verbs[vbIndex][this.props.currentQuestion]),
+        });
     }
 
     randomizeHint = () => {

@@ -14,7 +14,6 @@ class MainPage extends React.Component {
             verbs: data[0].items,
             currentVerbsSetIndex: 0,
         }
-        console.log(data);
         this.settings = Object.getOwnPropertyNames(data[0].items[0]);
     }
 
@@ -22,14 +21,12 @@ class MainPage extends React.Component {
         this.setState({
             currentQuestion: setting,
         });
-        this.game.restartGame(false);
     }
 
     chooseAnswer = (setting) => {
         this.setState({
             currentAnswer: setting,
         });
-        this.game.restartGame(false);
     }
 
     chooseVerbsSet = (verbsSetIndex) => {
@@ -37,7 +34,6 @@ class MainPage extends React.Component {
             currentVerbsSetIndex: verbsSetIndex,
             verbs: data[verbsSetIndex].items,
         });
-        this.game.restartGame(true);
     }
 
     verbsSetButtons = () => {
@@ -82,7 +78,6 @@ class MainPage extends React.Component {
                         verbs={this.state.verbs}
                         currentQuestion={this.state.currentQuestion}
                         currentAnswer={this.state.currentAnswer}
-                        ref={instance => {this.game = instance; }}
                     />
                 </div>
             </div>
