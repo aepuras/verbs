@@ -15,6 +15,7 @@ class Game extends Component {
             noOfMistakes: 0,
             showAnswer: false,
             showWrong: false,
+            question: '',
         };
         this.renderForm = this.renderForm.bind(this);
     }
@@ -29,10 +30,28 @@ class Game extends Component {
 
     toggleGame = () => {
         let value = this.state.started;
+        let vbIndex = Math.floor(Math.random() * this.props.verbs.length);
         this.setState({
             started: !value,
-            verbIndex: Math.floor(Math.random() * this.props.verbs.length),
+            verbIndex: vbIndex,
+            question: this.randomArrayItem(this.props.verbs[vbIndex][this.props.currentQuestion]),
         });
+    }
+
+    randomizeHint = () => {
+        let hints = this.props.verbs[this.state.verbIndex][this.props.currentAnswer];
+        return this.randomArrayItem(hints);
+    }
+
+    randomArrayIndex = (arr) => {
+        let randomIndex = 0;
+        if (arr.length > 1) {
+            randomIndex = Math.floor(Math.random() * arr.length);
+        }
+        return randomIndex;
+    }
+    randomArrayItem = (arr) => {
+        return arr[this.randomArrayIndex(arr)];
     }
 
     onChange = e => {
@@ -40,16 +59,19 @@ class Game extends Component {
     }
 
     checkAnswer = () => {
+        let verb = this.props.verbs[this.state.verbIndex];
         this.setState({ showWrong: false });
-        if (this.state.answer === this.props.verbs[this.state.verbIndex][this.props.currentAnswer]) {
+        if (verb[this.props.currentAnswer].includes(this.state.answer)) {
             let currentIndex = this.state.verbIndex;
             let vbLength = this.props.verbs.length;
+            let nextIndex = currentIndex >= this.props.verbs.length - 1 ? 0 : currentIndex + 1;
             this.setState({
                 answer: '',
                 noOfMistakes: 0,
                 showAnswer: false,
-                verbIndex: currentIndex >= this.props.verbs.length - 1 ? 0 : ++currentIndex,
-            })
+                verbIndex: nextIndex,
+                question: this.randomArrayItem(this.props.verbs[nextIndex][this.props.currentQuestion])
+            });
         } else {
             let mistakes = this.state.noOfMistakes;
             this.setState({ noOfMistakes: ++mistakes});
@@ -57,7 +79,7 @@ class Game extends Component {
                 this.setState({
                     noOfMistakes: 0,
                     showAnswer: true,
-                    answer: this.props.verbs[this.state.verbIndex][this.props.currentAnswer],
+                    answer: this.randomizeHint(),
                     showWrong: false,
                 })
             } else {
@@ -79,7 +101,7 @@ class Game extends Component {
                 <div className="game-form-row">
                     <div>
                         <div>
-                            {this.props.verbs[this.state.verbIndex][this.props.currentQuestion]}
+                            {this.state.question}
                         </div>
                         <div>
                             <input
