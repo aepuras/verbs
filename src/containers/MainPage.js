@@ -40,6 +40,7 @@ class MainPage extends React.Component {
         return data.map((item, i) => {
             return (
                 <div
+                    key={i}
                     className={classnames('button', {selected: (i === this.state.currentVerbsSetIndex)})}
                     onClick={() => this.chooseVerbsSet(i)}
                 >

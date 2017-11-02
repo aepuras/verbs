@@ -16,6 +16,8 @@ class Game extends Component {
             showAnswer: false,
             showWrong: false,
             question: '',
+            noOfWrongs: 0,
+            noOfRights: 0,
         };
         this.renderForm = this.renderForm.bind(this);
     }
@@ -35,14 +37,16 @@ class Game extends Component {
             started: !value,
             verbIndex: vbIndex,
             question: this.randomArrayItem(this.props.verbs[vbIndex][this.props.currentQuestion]),
+            noOfWrongs: 0,
+            noOfRights: 0,
         });
     }
 
     componentDidUpdate (prevProps, prevState) {
-        if (prevProps.verbs != this.props.verbs) {
+        if (prevProps.verbs !== this.props.verbs) {
             this.restartGame(true);
         }
-        if (prevProps.currentQuestion != this.props.currentQuestion || prevProps.currentAnswer != this.props.currentAnswer) {
+        if (prevProps.currentQuestion !== this.props.currentQuestion || prevProps.currentAnswer !== this.props.currentAnswer) {
             this.restartGame(false);
         }
     }
@@ -81,14 +85,14 @@ class Game extends Component {
         this.setState({ showWrong: false });
         if (verb[this.props.currentAnswer].includes(this.state.answer)) {
             let currentIndex = this.state.verbIndex;
-            let vbLength = this.props.verbs.length;
             let nextIndex = currentIndex >= this.props.verbs.length - 1 ? 0 : currentIndex + 1;
             this.setState({
                 answer: '',
                 noOfMistakes: 0,
                 showAnswer: false,
                 verbIndex: nextIndex,
-                question: this.randomArrayItem(this.props.verbs[nextIndex][this.props.currentQuestion])
+                question: this.randomArrayItem(this.props.verbs[nextIndex][this.props.currentQuestion]),
+                noOfRights: this.state.noOfRights + (this.state.showAnswer ? 0 : 1),
             });
         } else {
             let mistakes = this.state.noOfMistakes;
@@ -99,6 +103,7 @@ class Game extends Component {
                     showAnswer: true,
                     answer: this.randomizeHint(),
                     showWrong: false,
+                    noOfWrongs: this.state.noOfWrongs + 1,
                 })
             } else {
                 this.timeOuts.push(setTimeout(() => { this.setState({showWrong: true}); } , 200));
@@ -123,6 +128,7 @@ class Game extends Component {
                         </div>
                         <div>
                             <input
+                                readOnly={this.state.showAnswer}
                                 onChange={this.onChange}
                                 onKeyPress={this.handleOnKeyPress}
                                 value={this.state.answer}
@@ -136,7 +142,9 @@ class Game extends Component {
                     </div>
                 </div>
                 <div>
+                    <div className="wrongStats">{this.state.noOfWrongs}</div>
                     <div className="button" onClick={this.checkAnswer}>Verify</div>
+                    <div className="rightStats">{this.state.noOfRights}</div>
                 </div>
             </div>
 

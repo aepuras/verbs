@@ -42,3 +42,16 @@
 .game-form-icon {
     margin-left: 5px;
 }
+
+.wrongStats, .rightStats {
+    font-size: 22px;
+    align-items: center;
+    display: flex;
+}
+
+.wrongStats {
+    color: red;
+}
+.rightStats {
+    color: green;
+}
