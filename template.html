@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>verbs</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.2.0/iscroll-probe.min.js"></script>
+        <style type="text/css">
+            body {
+                background-color: #0A3144;
+                padding: 10px;
+                font-family: sans-serif;
+            }
+            .topNav {
+                color: #ffffff;
+                display: flex;
+                background-color: #1B526E;
+                border-radius: 0.5em;
+                font-family: Arial, sans-serif;
+                font-weight: bold;
+                font-size: 25px;
+                overflow: hidden;
+            }
+            .topNav div {
+                padding: 14px;
+                display: flex;
+                justify-content: center;
+                align-content: center;
+                flex: 1;
+            }
+            .topNav div.active {
+                background-color: #FD5D5E;
+            }
+            .settings {
+                color: #ffffff;
+                display: flex;
+                flex-direction: column;
+                background-color: #FD5D5E;
+                border-radius: 0.5em;
+                font-family: Arial, sans-serif;
+                font-weight: bold;
+                font-size: 25px;
+                margin-top: 15px;
+            }
+            .settings > div {
+                padding: 14px;
+                display: flex;
+                align-content: center;
+                flex: 1;
+            }
+            .settings > div.title {
+                margin-left: 20px;
+                padding: 5px;
+            }
+            .item {
+                background-color: #1B526E;
+                position: absolute;
+                overflow: hidden;
+                width: 100%;   
+            }
+
+            .scroller {
+                user-select: none;
+                position: absolute;
+                z-index: 1;
+                width: 3000px;
+            }
+            .scroller ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                width: 100%;
+                height: 100%;
+                text-align: center;
+            }
+
+            .scroller li {
+                display: block;
+                float: left;
+                width: 130px;
+                height: 100%;
+            }
+        </style>
+    </head>
+    <body onload="loaded()">
+        <div class="topNav">
+            <div class="active">Common</div>
+            <div>Irregular</div>
+        </div>
+        <div class="settings">
+            <div class="title">Question</div>
+            <div class="item">
+                <div id="scroll-questions" class="scroller">
+                    <ul>
+                        <li>English</li>
+                        <li>Infinitiv</li>
+                        <li>Presens</li>
+                        <li>Preteritum</li>
+                        <li>Supinum</li>
+                        <li>Imperativum</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="settings">
+            <div class="title">Answer</div>
+            <div class="item">iscroll</div>
+        </div>
+        <script language="javascript">
+            function loaded() {
+                new IScroll("#scroll-questions", {
+                    scrollX: true,
+                    scrollY: false,
+                    bounce: true,
+                    snap: false,
+                    eventPassthrough: true
+                });
+                console.log("OK");
+            }
+        </script>
+    </body>
+</html>
