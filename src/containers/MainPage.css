@@ -1,18 +1,20 @@
-.settings-container {
+.topNav {
+    color: #ffffff;
     display: flex;
-    flex-direction: column;
+    background-color: #0083c5;
+    border-radius: 0.5em;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    overflow: hidden;
 }
-
-.settings-container > div {
+.topNav div {
+    padding: 14px;
     display: flex;
     justify-content: center;
+    align-content: center;
+    flex: 1;
 }
-
-.settings-group {
-    width: 600px;
-    display: flex;
-    justify-content: space-around;
-}
-
-.main-container {
+.topNav div.active {
+    background-color: #FFCA08;
+    color: #0070AF;
 }

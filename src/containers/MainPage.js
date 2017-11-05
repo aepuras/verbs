@@ -41,7 +41,7 @@ class MainPage extends React.Component {
             return (
                 <div
                     key={i}
-                    className={classnames('button', {selected: (i === this.state.currentVerbsSetIndex)})}
+                    className={classnames({active: (i === this.state.currentVerbsSetIndex)})}
                     onClick={() => this.chooseVerbsSet(i)}
                 >
                     {item.name}
@@ -52,35 +52,29 @@ class MainPage extends React.Component {
 
     render() {
         return(
-            <div className="main-container">
-                <div className="settings-container">
-                    <div>
-                        { this.verbsSetButtons() }
-                    </div>
-                    <div>
-                        <div className="settings-group">
-                            <Settings
-                                settings={this.settings}
-                                selected={this.state.currentQuestion}
-                                choose={this.chooseQuestion}
-                                disabled={[this.state.currentAnswer]}
-                            />
-                            <Settings
-                                settings={this.settings}
-                                selected={this.state.currentAnswer}
-                                choose={this.chooseAnswer}
-                                disabled={[this.state.currentQuestion]}
-                            />
-                        </div>
-                    </div>
+            <div className="container">
+                <div className="topNav">
+                    { this.verbsSetButtons() }
                 </div>
-                <div className="game-container">
-                    <Game
-                        verbs={this.state.verbs}
-                        currentQuestion={this.state.currentQuestion}
-                        currentAnswer={this.state.currentAnswer}
-                    />
-                </div>
+                <Settings
+                    title="Question"
+                    settings={this.settings}
+                    selected={this.state.currentQuestion}
+                    choose={this.chooseQuestion}
+                    disabled={[this.state.currentAnswer]}
+                />
+                <Settings
+                    title="Answer"
+                    settings={this.settings}
+                    selected={this.state.currentAnswer}
+                    choose={this.chooseAnswer}
+                    disabled={[this.state.currentQuestion]}
+                />
+                <Game
+                    verbs={this.state.verbs}
+                    currentQuestion={this.state.currentQuestion}
+                    currentAnswer={this.state.currentAnswer}
+                />
             </div>
         );
     }

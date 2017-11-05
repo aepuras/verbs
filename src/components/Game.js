@@ -19,7 +19,6 @@ class Game extends Component {
             noOfWrongs: 0,
             noOfRights: 0,
         };
-        this.renderForm = this.renderForm.bind(this);
     }
 
     componentWillMount = () => {
@@ -40,6 +39,10 @@ class Game extends Component {
             noOfWrongs: 0,
             noOfRights: 0,
         });
+    }
+
+    componentDidMount() {
+        this.toggleGame();
     }
 
     componentDidUpdate (prevProps, prevState) {
@@ -118,48 +121,39 @@ class Game extends Component {
         }
     }
 
-    renderForm () {
+    render () {
         return (
-            <div className="game-form">
-                <div className="game-form-row">
-                    <div>
+            <div>
+                <div class="game">
+                    <div class="question">{this.state.question}</div>
+                    <div class="answer">
+                        <input
+                            placeholder=":answer"
+                            readOnly={this.state.showAnswer}
+                            onChange={this.onChange}
+                            onKeyPress={this.handleOnKeyPress}
+                            value={this.state.answer}
+                            className={classnames({error: !!this.state.showAnswer})}
+                            ref={(ip) => this.answerInput = ip}
+                            type="text" id="answer" name="answer"
+                        />
+                    </div>
+                </div>
+                <div class="footer">
+                    <div class="stats">
                         <div>
-                            {this.state.question}
-                        </div>
-                        <div>
-                            <input
-                                readOnly={this.state.showAnswer}
-                                onChange={this.onChange}
-                                onKeyPress={this.handleOnKeyPress}
-                                value={this.state.answer}
-                                className={classnames({error: !!this.state.showAnswer})}
-                                ref={(ip) => this.answerInput = ip}
-                                type="text" id="answer" name="answer" />
+                            <div>{this.state.noOfWrongs}</div>
+                            <div>{this.state.noOfRights}</div>
                             <div className={classnames('game-form-icon', { hidden: !this.state.showWrong })}>
                                 <Icon icon={ICONS.WRONG}  color="red" />
                             </div>
                         </div>
                     </div>
-                </div>
-                <div>
-                    <div className="wrongStats">{this.state.noOfWrongs}</div>
-                    <div className="button" onClick={this.checkAnswer}>Verify</div>
-                    <div className="rightStats">{this.state.noOfRights}</div>
-                </div>
-            </div>
-
-        );
-    }
-
-    render () {
-        return (
-            <div>
-                <div className="game-start">
-                    <div className="button" onClick={this.toggleGame}>
-                        { this.state.started ? 'Stop' : 'Start' }
+                    <div class="buttons">
+                        <div onClick={this.toggleGame}>Reset</div>
+                        <div onClick={this.checkAnswer}>Verify</div>
                     </div>
                 </div>
-                { this.state.started && this.renderForm() }
             </div>
         )
     }

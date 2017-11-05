@@ -2,7 +2,7 @@ import React from 'react';
 import Setting from './Setting';
 import './Settings.css';
 
-const Settings = ({settings, selected, choose, disabled}) => {
+const Settings = ({title, settings, selected, choose, disabled}) => {
     const settingComponents = settings.map((setting, i) => {
         return (
             <Setting
@@ -16,8 +16,19 @@ const Settings = ({settings, selected, choose, disabled}) => {
     });
 
     return (
-        <div className="settings">
-            {settingComponents}
+        <div class="settings">
+            <div class="title">{title}</div>
+            <div class="item">
+                <div class="gradient_start"></div>
+                <div id="scroll-questions-wrapper" class="scroller-wrapper">
+                    <div class="scroller">
+                        <ul id="questions-list">
+                            {settingComponents}
+                        </ul>
+                    </div>
+                </div>
+                <div class="gradient_end"><div></div></div>
+            </div>
         </div>
     );
 }

@@ -1,35 +1,3 @@
-
-.button {
-    margin: 10px;
-    user-select: none;
-    cursor: pointer;
-    padding: .8rem 2rem;
-    font-weight: 500;
-    font-weight: 500;
-    color: #7952b3;
-    display: inline-block;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    border: 1px solid #7952b3;
-    padding: .375rem .75rem;
-    font-size: 1rem;
-    line-height: 1.5;
-    border-radius: .25rem;
-    transition: background-color, border-color, box-shadow;
-    transition-duration: 0.15s, 0.15s, 0.15s;
-    transition-timing-function: ease-in-out, ease-in-out, ease-in-out;
-    transition-delay: initial, initial, initial;
-    touch-action: manipulation;
-
-}
-
-.button:hover {
-    color: #fff;
-    background-color: #7952b3;
-    border-color: #7952b3;
-}
-
 .hidden {
     visibility: hidden;
 }

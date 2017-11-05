@@ -1,57 +1,87 @@
-.game-start {
+.game {
+    color: #ffffff;
     display: flex;
-    justify-content: center;
+    background-color: #0083c5;
+    border-radius: 0.5em;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    margin-top: 15px;
+    padding: 14px;
 }
 
-.game-form {
-    display: flex;
-    flex-direction: column;
-}
-
-.game-form > div {
-    display: flex;
-    justify-content: center;
-}
-
-.game-form-row {
-    display: flex;
-    justify-content: center;
-}
-
-.game-form-row > div {
-    display: flex;
-}
-
-.game-form-row > div > div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.question {
     flex: 1;
-    font-size: 30px;
-    color: orange;
+    color: #FFFFFF;
+    font-style: italic;
+    font-weight: bold;
 }
 
-.game-form-row input {
-    width: 100%
+.answer {
+    flex: 1;
 }
 
-.game-form-row input.error {
-    color: red;
+.answer > input {
+    border: none;
+    border-bottom: solid 2px #0070AF;
+    background-color: rgb(152, 186, 202);
+    transition: border 0.3s;
+    width: 100%;
+    padding: 5px;
+    font-size: 20px;
 }
 
-.game-form-icon {
-    margin-left: 5px;
+.answer > input:focus {
+    outline: none;
 }
 
-.wrongStats, .rightStats {
-    font-size: 22px;
-    align-items: center;
+.footer {
     display: flex;
+    flex-wrap: wrap;
 }
 
-.wrongStats {
-    color: red;
+.stats {
+    display: flex;
+    align-content: center;
 }
-.rightStats {
-    color: green;
+
+.stats > div {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    margin-bottom: 8px;
+}
+
+.stats > div > div {
+    background-color: #dae9f1;
+    border-radius: 1em;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    margin-right: 10px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #70c570;
+}
+
+.stats > div > div:first-child {
+    color: #f77070;
+}
+
+.buttons {
+    flex: 1;
+    margin-top: 15px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.buttons > div {
+    color: #ffffff;
+    background-color: #0083c5;
+    border-radius: 0.5em;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    padding: 14px;
+    margin-left: 10px;
 }

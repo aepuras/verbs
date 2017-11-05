@@ -1,6 +1,6 @@
 [
   {
-    "name": ["Most common verbs"],
+    "name": ["common"],
     "items": [
       {
         "english": ["be"],
@@ -305,11 +305,66 @@
         "preteritum": ["slutade"],
         "supinum": ["slutat"],
         "imperativum": ["sluta"]
+      },
+      {
+        "english": ["agree"],
+        "infinitiv": ["stämma"],
+        "presens": ["stämmer"],
+        "preteritum": ["stämde"],
+        "supinum": ["stämt"],
+        "imperativum": ["stämma"]
+      },
+      {
+        "english": ["call"],
+        "infinitiv": ["kalla"],
+        "presens": ["kallar"],
+        "preteritum": ["kallade"],
+        "supinum": ["kallat"],
+        "imperativum": ["kalla"]
+      },
+      {
+        "english": ["solve"],
+        "infinitiv": ["lösa"],
+        "presens": ["löser"],
+        "preteritum": ["löste"],
+        "supinum": ["löst"],
+        "imperativum": ["lösa"]
+      },      {
+        "english": ["beg", "pray"],
+        "infinitiv": ["be"],
+        "presens": ["ber"],
+        "preteritum": ["bad"],
+        "supinum": ["bett"],
+        "imperativum": ["be"]
+      },
+      {
+        "english": ["decide"],
+        "infinitiv": ["besluta"],
+        "presens": ["besluter", "beslutar"],
+        "preteritum": ["beslöt", "beslutade"],
+        "supinum": ["beslutit", "beslutat"],
+        "imperativum": ["besluta"]
+      },
+      {
+        "english": ["compare"],
+        "infinitiv": ["jämföra"],
+        "presens": ["jämför"],
+        "preteritum": ["jämförde"],
+        "supinum": ["jämfört"],
+        "imperativum": ["jämföra"]
+      },
+      {
+        "english": ["belong"],
+        "infinitiv": ["tillhöra"],
+        "presens": ["tillhör"],
+        "preteritum": ["tillhörde"],
+        "supinum": ["tillhört"],
+        "imperativum": ["tillhöra"]
       }
     ]
   },
   {
-    "name": ["Only irregular verbs"],
+    "name": ["irregular"],
     "items": [
       {
         "english": ["ask", "pray"],
