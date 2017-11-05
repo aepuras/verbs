@@ -1,8 +1,22 @@
 import React from 'react';
 import Setting from './Setting';
 import './Settings.css';
+import iScroll from 'iscroll/build/iscroll-probe';
+import ReactIScroll from 'react-iscroll';
 
 const Settings = ({title, settings, selected, choose, disabled}) => {
+    const iScrollOptions = {
+            options : {
+                scrollX: true,
+                scrollY: false,
+                bounce: true,
+                snap: false,
+                mouseWheel: true,
+                tap: true
+            }
+        }
+    
+
     const settingComponents = settings.map((setting, i) => {
         return (
             <Setting
@@ -16,18 +30,20 @@ const Settings = ({title, settings, selected, choose, disabled}) => {
     });
 
     return (
-        <div class="settings">
-            <div class="title">{title}</div>
-            <div class="item">
-                <div class="gradient_start"></div>
-                <div id="scroll-questions-wrapper" class="scroller-wrapper">
-                    <div class="scroller">
+        <div className="settings">
+            <div className="title">{title}</div>
+            <div className="item">
+                <div className="gradient_start"></div>
+                {/* <div id="scroll-questions-wrapper" class="scroller-wrapper"> */}
+                <ReactIScroll iScroll={iScroll} options={this.iScrollOptions} className="scroller-wrapper">
+                    <div className="scroller">
                         <ul id="questions-list">
                             {settingComponents}
                         </ul>
                     </div>
-                </div>
-                <div class="gradient_end"><div></div></div>
+                </ReactIScroll>
+                {/* </div> */}
+                <div className="gradient_end"><div></div></div>
             </div>
         </div>
     );

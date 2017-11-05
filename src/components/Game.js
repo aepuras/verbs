@@ -124,9 +124,9 @@ class Game extends Component {
     render () {
         return (
             <div>
-                <div class="game">
-                    <div class="question">{this.state.question}</div>
-                    <div class="answer">
+                <div className="game">
+                    <div className="question">{this.state.question}</div>
+                    <div className="answer">
                         <input
                             placeholder=":answer"
                             readOnly={this.state.showAnswer}
@@ -139,8 +139,8 @@ class Game extends Component {
                         />
                     </div>
                 </div>
-                <div class="footer">
-                    <div class="stats">
+                <div className="footer">
+                    <div className="stats">
                         <div>
                             <div>{this.state.noOfWrongs}</div>
                             <div>{this.state.noOfRights}</div>
@@ -149,7 +149,7 @@ class Game extends Component {
                             </div>
                         </div>
                     </div>
-                    <div class="buttons">
+                    <div className="buttons">
                         <div onClick={this.toggleGame}>Reset</div>
                         <div onClick={this.checkAnswer}>Verify</div>
                     </div>
