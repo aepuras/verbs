@@ -50,7 +50,7 @@
     background-color: #0070af;
     height: 100%;
     left: 14px;
-    width: 50px;
+    width: 15px;
     background: linear-gradient(to left, rgba(255, 0, 0, 0), #0083c5);
     z-index: 1;
 }
@@ -64,8 +64,8 @@
     top: 0px;
     background-color: #0070af;
     height: 100%;
-    left: -50px;
-    width: 50px;
+    left: -15px;
+    width: 15px;
     background: linear-gradient(to right, rgba(255, 0, 0, 0), #0083c5);
     z-index: 1;
 }

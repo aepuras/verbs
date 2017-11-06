@@ -1,52 +1,59 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Setting from './Setting';
 import './Settings.css';
 import iScroll from 'iscroll/build/iscroll-probe';
 import ReactIScroll from 'react-iscroll';
 
-const Settings = ({title, settings, selected, choose, disabled}) => {
-    const iScrollOptions = {
-            options : {
-                scrollX: true,
-                scrollY: false,
-                bounce: true,
-                snap: false,
-                mouseWheel: true,
-                tap: true
-            }
-        }
-    
+class Settings extends Component {
+    onScrollStart() {
+        console.log("testing");
+    }
 
-    const settingComponents = settings.map((setting, i) => {
+    settingsComponents() {
+        return this.props.settings.map((setting, i) => {
+            return (
+                <Setting
+                    key={i}
+                    setting={setting}
+                    selected={this.props.selected === setting}
+                    choose={() => this.props.choose(setting)}
+                    disabled={this.props.disabled.includes(setting)}
+                />
+            );
+        });
+    }
+
+    render() {
         return (
-            <Setting
-                key={i}
-                setting={setting}
-                selected={selected === setting}
-                choose={() => choose(setting)}
-                disabled={disabled.includes(setting)}
-            />
-        )
-    });
-
-    return (
-        <div className="settings">
-            <div className="title">{title}</div>
-            <div className="item">
-                <div className="gradient_start"></div>
-                {/* <div id="scroll-questions-wrapper" class="scroller-wrapper"> */}
-                <ReactIScroll iScroll={iScroll} options={this.iScrollOptions} className="scroller-wrapper">
-                    <div className="scroller">
-                        <ul id="questions-list">
-                            {settingComponents}
-                        </ul>
-                    </div>
-                </ReactIScroll>
-                {/* </div> */}
-                <div className="gradient_end"><div></div></div>
+            <div className="settings">
+                <div className="title">{this.props.title}</div>
+                <div className="item">
+                    <div className="gradient_start"></div>
+                    <ReactIScroll iScroll={iScroll} options={this.props.options} className="scroller-wrapper">
+                        <div className="scroller">
+                            <ul id="questions-list">
+                                {this.settingsComponents()}
+                            </ul>
+                        </div>
+                    </ReactIScroll>
+                    <div className="gradient_end"><div></div></div>
+                </div>
             </div>
-        </div>
-    );
+        );
+    }
+
 }
+
+Settings.defaultProps = {
+  options: {
+    scrollX: true,
+    scrollY: false,
+    bounce: true,
+    snap: false,
+    mouseWheel: true,
+    tap: true
+  }
+};
+
 
 export default Settings;
