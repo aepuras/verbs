@@ -129,7 +129,6 @@ class Game extends Component {
                     <div className="answer">
                         <input
                             placeholder=":answer"
-                            readOnly={this.state.showAnswer}
                             onChange={this.onChange}
                             onKeyPress={this.handleOnKeyPress}
                             value={this.state.answer}

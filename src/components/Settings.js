@@ -57,8 +57,7 @@ Settings.defaultProps = {
     scrollY: false,
     bounce: true,
     snap: false,
-    mouseWheel: true,
-    tap: true
+    eventPassthrough: true
   }
 };
 
