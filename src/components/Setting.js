@@ -7,7 +7,7 @@ class Setting extends Component {
     render () {
         return (
             <li
-                className={classnames('button', {selected: !!this.props.selected}, {disabled: !!this.props.disabled})}
+                className={classnames({selected: !!this.props.selected}, {disabled: !!this.props.disabled})}
                 onClick={() => { !this.props.disabled ? this.props.choose() : console.log('ok') }}>
                 {this.props.setting}
             </li>

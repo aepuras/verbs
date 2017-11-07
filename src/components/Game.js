@@ -133,7 +133,7 @@ class Game extends Component {
                             onChange={this.onChange}
                             onKeyPress={this.handleOnKeyPress}
                             value={this.state.answer}
-                            className={classnames({error: !!this.state.showAnswer})}
+                            className={classnames({hint: !!this.state.showAnswer}, { error: this.state.showWrong })}
                             ref={(ip) => this.answerInput = ip}
                             type="text" id="answer" name="answer"
                         />
@@ -144,9 +144,6 @@ class Game extends Component {
                         <div>
                             <div>{this.state.noOfWrongs}</div>
                             <div>{this.state.noOfRights}</div>
-                            <div className={classnames('game-form-icon', { hidden: !this.state.showWrong })}>
-                                <Icon icon={ICONS.WRONG}  color="red" />
-                            </div>
                         </div>
                     </div>
                     <div className="buttons">

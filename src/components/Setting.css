@@ -9,3 +9,8 @@
     background-color: #FFCA08;
     color: #0070AF;
 }
+
+.scroller li.disabled {
+    background-color: #819bab;
+    color: #c4c5c5;
+}

@@ -23,13 +23,20 @@ class Settings extends Component {
         });
     }
 
+    componentDidMount() {
+        console.log("OOOOO");
+        this.refs.iScroll.withIScroll(true, function(iScroll) {
+            iScroll.scrollTo(this.props.title === "Question" ? -100 : -225, 0);
+        }.bind(this));
+    }
+
     render() {
         return (
             <div className="settings">
                 <div className="title">{this.props.title}</div>
                 <div className="item">
                     <div className="gradient_start"></div>
-                    <ReactIScroll iScroll={iScroll} options={this.props.options} className="scroller-wrapper">
+                    <ReactIScroll ref="iScroll" iScroll={iScroll} options={this.props.options} className="scroller-wrapper">
                         <div className="scroller">
                             <ul id="questions-list">
                                 {this.settingsComponents()}

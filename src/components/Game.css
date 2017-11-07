@@ -34,6 +34,14 @@
     outline: none;
 }
 
+.answer > input.hint {
+    color: red;
+}
+
+.answer > input.error {
+    background-color: #ff9e9e;
+}
+
 .footer {
     display: flex;
     flex-wrap: wrap;
