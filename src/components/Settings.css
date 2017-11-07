@@ -66,6 +66,6 @@
     height: 100%;
     left: -15px;
     width: 15px;
-    background: linear-gradient(to right, rgba(255, 0, 0, 0), #0083c5);
+    background: linear-gradient(to right, rgba(0, 131, 197, 0), rgba(0, 131, 197, 1));
     z-index: 1;
 }
