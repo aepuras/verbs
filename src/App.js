@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import MainPage from './containers/MainPage';
 
 class App extends Component {
-    componentDidMount() {
+    componentDidMounts() {
         document.addEventListener('touchmove', function (e) { e.preventDefault(); }, this.isPassive() ? {
             capture: false,
             passive: false
