@@ -2,10 +2,10 @@ import React from 'react';
 import classnames from 'classnames';
 import data from '../data/verbs';
 import Settings from '../components/Settings';
-import Game from '../components/Game';
-import './MainPage.css';
+import VerbsGame from '../components/VerbsGame';
+import './Verbs.css';
 
-class MainPage extends React.Component {
+class Verbs extends React.Component {
     constructor (props) {
         super (props);
         this.state = {
@@ -70,7 +70,7 @@ class MainPage extends React.Component {
                     choose={this.chooseAnswer}
                     disabled={[this.state.currentQuestion]}
                 />
-                <Game
+                <VerbsGame
                     verbs={this.state.verbs}
                     currentQuestion={this.state.currentQuestion}
                     currentAnswer={this.state.currentAnswer}
@@ -80,4 +80,4 @@ class MainPage extends React.Component {
     }
 }
 
-export default MainPage;
+export default Verbs;
